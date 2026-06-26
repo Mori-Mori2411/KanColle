@@ -18,12 +18,12 @@ import { getFirestore } from 'https://www.gstatic.com/firebasejs/10.12.0/firebas
 // Firebase Console > プロジェクト設定 > マイアプリ > firebaseConfig
 // ============================================================
 const firebaseConfig = {
-  apiKey: "YOUR_API_KEY",
-  authDomain: "YOUR_AUTH_DOMAIN",
-  projectId: "YOUR_PROJECT_ID",
-  storageBucket: "YOUR_STORAGE_BUCKET",
-  messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
-  appId: "YOUR_APP_ID"
+  apiKey: "AIzaSyC_RR7YYqhTH_KAMCTyTsfywGD8oZDxvUE",
+  authDomain: "kancolle-ffc54.firebaseapp.com",
+  projectId: "kancolle-ffc54",
+  storageBucket: "kancolle-ffc54.firebasestorage.app",
+  messagingSenderId: "856812672764",
+  appId: "1:856812672764:web:8d22fb885de6b552d96979"
 };
 // ============================================================
 
@@ -38,7 +38,7 @@ const isConfigured = !firebaseConfig.apiKey.includes('YOUR_');
 // --- Googleログイン ---
 async function signIn() {
   if (!isConfigured) {
-    showToast('Firebase設定が必要です');
+    if (window.showToast) window.showToast('Firebase設定が必要です');
     return;
   }
   const provider = new GoogleAuthProvider();

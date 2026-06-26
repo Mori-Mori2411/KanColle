@@ -277,6 +277,7 @@ onAuthStateChanged(auth, user => {
 // ---------- window に公開（HTMLのonclickから呼ぶため） ----------
 // type="module" 内の関数はそのままではHTMLから見えないので window に登録する
 
+window.showToast  = showToast;
 window.appSignIn  = signIn;
 window.appSignOut = signOut;
 window.switchMain = switchMain;
