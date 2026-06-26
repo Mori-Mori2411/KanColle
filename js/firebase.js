@@ -23,7 +23,8 @@ const firebaseConfig = {
   projectId: "kancolle-ffc54",
   storageBucket: "kancolle-ffc54.firebasestorage.app",
   messagingSenderId: "856812672764",
-  appId: "1:856812672764:web:8d22fb885de6b552d96979"
+  appId: "1:856812672764:web:8d22fb885de6b552d96979",
+  measurementId: "G-LRN5J2DKET"
 };
 // ============================================================
 
@@ -38,7 +39,10 @@ const isConfigured = !firebaseConfig.apiKey.includes('YOUR_');
 // --- Googleログイン ---
 async function signIn() {
   if (!isConfigured) {
-    if (window.showToast) window.showToast('Firebase設定が必要です');
+    // window.showToast の登録タイミングに依存しないよう alert にフォールバック
+    const msg = 'Firebase設定が必要です';
+    if (typeof window.showToast === 'function') window.showToast(msg);
+    else alert(msg);
     return;
   }
   const provider = new GoogleAuthProvider();
